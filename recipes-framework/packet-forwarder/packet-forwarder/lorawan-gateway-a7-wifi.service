@@ -1,0 +1,12 @@
+[Unit]
+Description=LoRaWan Gateway
+
+[Service]
+WorkingDirectory=/usr/local/lorawan-gateway
+ExecStart=/usr/local/lorawan-gateway/launch_a7_wifi.sh
+SyslogIdentifier=stm32mp1-lorawan-a7
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

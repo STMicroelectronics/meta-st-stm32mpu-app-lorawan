@@ -1,0 +1,12 @@
+[Unit]
+Description=LoRa Gateway Bridge
+Documentation=https://www.loraserver.io/
+
+[Service]
+WorkingDirectory=/usr/bin/
+ExecStart=/usr/bin/lora-gateway-bridge
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
