@@ -1,0 +1,77 @@
+[general]
+log_level=4
+password_hash_iterations=1000
+
+[postgresql]
+dsn="postgres://chirpstack_as:your_dbpassword@localhost/chirpstack_as?sslmode=disable"
+
+
+# Redis settings
+# Please note that Redis 2.6.0+ is required.
+[redis]
+url="redis://localhost:6379"
+
+[application_server.integration]
+# Payload marshaler.
+  #
+  # This defines how the MQTT payloads are encoded. Valid options are:
+  # * protobuf:  Protobuf encoding
+  # * json:      JSON encoding (easier for debugging, but less compact than 'protobuf')
+  # * json_v3:   v3 JSON (will be removed in the next major release)
+marshaler="json_v3"
+
+# Enabled integrations are enabled for all applications. Multiple
+# integrations can be configured.
+# Do not forget to configure the related configuration section below for
+# the enabled integrations. Integrations that can be enabled are:
+ # * mqtt              - MQTT broker
+ # * amqp              - AMQP / RabbitMQ
+ # * aws_sns           - AWS Simple Notification Service (SNS)
+ # * azure_service_bus - Azure Service-Bus
+ # * gcp_pub_sub       - Google Cloud Pub/Sub
+ # * kafka             - Kafka distributed streaming platform
+ # * postgresql        - PostgreSQL database
+enabled=["mqtt"]
+
+[application_server.integration.mqtt]
+#Event topic template.
+  event_topic_template="application/{{ .ApplicationID }}/device/{{ .DevEUI }}/event/{{ .EventType }}"
+
+#Command topic template.
+  command_topic_template="application/{{ .ApplicationID }}/device/{{ .DevEUI }}/command/{{ .CommandType }}"
+
+# MQTT server (e.g. scheme://host:port where scheme is tcp, ssl or ws)
+server="tcp://localhost:1883"
+
+# Connect with the given username (optional)
+username=""
+
+# Connect with the given password (optional)
+password=""
+
+[application_server.api]
+# ip:port to bind the api server
+bind="0.0.0.0:8001"
+
+# Public ip:port of the application-server API.
+# This is used by the Network Server to connect to the Application Server.
+# The port must be equal to the port configured by the 'bind' flag above.
+public_host="localhost:8001"
+
+
+# This is the API and web-interface exposed to the end-user
+[application_server.external_api]
+#ip:port to bind the (user facing) http server to (web-interface and REST / gRPC api)
+bind="0.0.0.0:8080"
+
+#JWT secret used for api authentication / authorization
+#You could generate this by executing 'openssl rand -base64 32' for example
+jwt_secret="verysecret"
+
+[join_server]
+  bind="0.0.0.0:8003"
+
+  [join_server.kek]
+    as_kek_label=""
+[metrics]
+  timezone="Local"
