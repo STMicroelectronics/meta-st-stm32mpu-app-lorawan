@@ -1,4 +1,4 @@
-require ../../../meta-st-openstlinux/recipes-st/images/st-image-core.bb
+require ../../../meta-st-openstlinux/recipes-st/images/st-image-weston.bb
 
 SUMMARY = "*** Application DEMO : OpenSTLinux LoRaWAN demo"
 
@@ -16,9 +16,9 @@ libpgtypes \
 EXTRA_IMAGE_FEATURES += " package-management "
 
 PACKAGE_INSTALL += " \
-loraserver \
-lora-gateway-bridge \
-lora-app-server \
+chirpstack-network-server \
+chirpstack-gateway-bridge \
+chirpstack-application-server \
 "
 
 #

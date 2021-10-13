@@ -1,0 +1,12 @@
+[Unit]
+Description=Chirpstack Gateway Bridge
+Documentation=https://www.chirpstack.io/
+
+[Service]
+WorkingDirectory=/usr/bin/
+ExecStart=/usr/bin/chirpstack-gateway-bridge
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

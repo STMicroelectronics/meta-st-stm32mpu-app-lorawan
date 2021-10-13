@@ -6,7 +6,9 @@ and SX1257/SX1255 RF transceivers."
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a2bdef95625509f821ba00460e3ae0eb"
 
-SRC_URI = "git://github.com/Lora-net/lora_gateway;protocol=https;branch=master"
+SRC_URI = "git://github.com/Lora-net/lora_gateway;protocol=https;branch=master \
+           file://0001-SPI-speed-modified-by-Olivier-Roffinella-Apprentice-.patch \
+           "
 
 SRCREV = "a955619271b5d0a46d32e08150acfbc1eed183b7"
 

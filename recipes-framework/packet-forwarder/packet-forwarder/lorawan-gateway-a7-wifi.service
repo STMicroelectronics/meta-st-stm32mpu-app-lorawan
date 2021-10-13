@@ -5,7 +5,7 @@ Description=LoRaWan Gateway
 WorkingDirectory=/usr/local/lorawan-gateway
 ExecStart=/usr/local/lorawan-gateway/launch_a7_wifi.sh
 SyslogIdentifier=stm32mp1-lorawan-a7
-Restart=on-failure
+Restart=always
 RestartSec=5
 
 [Install]
