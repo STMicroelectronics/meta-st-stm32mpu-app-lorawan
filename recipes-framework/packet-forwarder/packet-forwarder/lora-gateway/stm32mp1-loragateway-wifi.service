@@ -1,0 +1,11 @@
+[Unit]
+Description=LoRaWan Gateway
+
+[Service]
+WorkingDirectory=/usr/local/lorawan-gateway/lora-gateway
+ExecStart=/usr/local/lorawan-gateway/lora-gateway/stm32mp1-loragateway-wifi.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

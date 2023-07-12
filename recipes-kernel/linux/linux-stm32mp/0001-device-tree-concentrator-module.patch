@@ -1,0 +1,179 @@
+From 03bc682206be87a3a9bbdbd2dbe828110bded98c Mon Sep 17 00:00:00 2001
+From: Amit Kumar <amit-emr.kumar@st.com>
+Date: Thu, 11 May 2023 13:44:21 +0530
+Subject: [PATCH] enabled SPI5 and USART3 in device tree
+
+---
+ arch/arm/boot/dts/stm32mp157a-dk1.dts | 33 +++++++++++++++++++++++++++
+ arch/arm/boot/dts/stm32mp157c-dk2.dts | 33 +++++++++++++++++++++++++++
+ arch/arm/boot/dts/stm32mp157d-dk1.dts | 33 +++++++++++++++++++++++++++
+ arch/arm/boot/dts/stm32mp157f-dk2.dts | 33 +++++++++++++++++++++++++++
+ 4 files changed, 132 insertions(+)
+
+diff --git a/arch/arm/boot/dts/stm32mp157a-dk1.dts b/arch/arm/boot/dts/stm32mp157a-dk1.dts
+index f48207da..23e4a5c9 100644
+--- a/arch/arm/boot/dts/stm32mp157a-dk1.dts
++++ b/arch/arm/boot/dts/stm32mp157a-dk1.dts
+@@ -20,3 +20,36 @@
+ 		stdout-path = "serial0:115200n8";
+ 	};
+ };
++
++&spi5{
++	pinctrl-names = "default", "sleep";
++	pinctrl-0 = <&spi5_pins_a>;
++	pinctrl-1 = <&spi5_sleep_pins_a>;
++	status = "okay";
++
++	/* USER CODE BEGIN spi5 */
++	
++	cs-gpios = <&gpiof 6 0>;
++	/delete-property/dmas;
++	/delete-property/dma-names;
++  	spidev@0 {
++		compatible = "semtech,sx1301";
++		reg = <0>;
++		spi-max-frequency = <8000000>;
++		st,spi-midi-ns = <4000>;
++	};
++	
++	/* USER CODE END spi5 */
++};
++ 
++&usart3{
++	pinctrl-names = "default";
++	pinctrl-0 = <&usart3_pins_a>;
++	status = "okay";
++	/* USER CODE BEGIN usart3 */
++       
++        /delete-property/dmas;
++	/delete-property/dma-names;
++       
++       /* USER CODE END usart3 */
++}; 
+diff --git a/arch/arm/boot/dts/stm32mp157c-dk2.dts b/arch/arm/boot/dts/stm32mp157c-dk2.dts
+index 53d75e1c..cf0d0580 100644
+--- a/arch/arm/boot/dts/stm32mp157c-dk2.dts
++++ b/arch/arm/boot/dts/stm32mp157c-dk2.dts
+@@ -152,3 +152,36 @@
+ 		vddio-supply = <&v3v3>;
+ 	};
+ };
++
++&spi5{
++	pinctrl-names = "default", "sleep";
++	pinctrl-0 = <&spi5_pins_a>;
++	pinctrl-1 = <&spi5_sleep_pins_a>;
++	status = "okay";
++
++	/* USER CODE BEGIN spi5 */
++	
++	cs-gpios = <&gpiof 6 0>;
++	/delete-property/dmas;
++	/delete-property/dma-names;
++  	spidev@0 {
++		compatible = "semtech,sx1301";
++		reg = <0>;
++		spi-max-frequency = <8000000>;
++		st,spi-midi-ns = <4000>;
++	};
++	
++	/* USER CODE END spi5 */
++};
++ 
++&usart3{
++	pinctrl-names = "default";
++	pinctrl-0 = <&usart3_pins_a>;
++	status = "okay";
++	/* USER CODE BEGIN usart3 */
++       
++        /delete-property/dmas;
++	/delete-property/dma-names;
++       
++       /* USER CODE END usart3 */
++}; 
+diff --git a/arch/arm/boot/dts/stm32mp157d-dk1.dts b/arch/arm/boot/dts/stm32mp157d-dk1.dts
+index d54dcf16..ea0fb302 100644
+--- a/arch/arm/boot/dts/stm32mp157d-dk1.dts
++++ b/arch/arm/boot/dts/stm32mp157d-dk1.dts
+@@ -20,3 +20,36 @@
+ 		stdout-path = "serial0:115200n8";
+ 	};
+ };
++
++&spi5{
++	pinctrl-names = "default", "sleep";
++	pinctrl-0 = <&spi5_pins_a>;
++	pinctrl-1 = <&spi5_sleep_pins_a>;
++	status = "okay";
++
++	/* USER CODE BEGIN spi5 */
++	
++	cs-gpios = <&gpiof 6 0>;
++	/delete-property/dmas;
++	/delete-property/dma-names;
++  	spidev@0 {
++		compatible = "semtech,sx1301";
++		reg = <0>;
++		spi-max-frequency = <8000000>;
++		st,spi-midi-ns = <4000>;
++	};
++	
++	/* USER CODE END spi5 */
++};
++ 
++&usart3{
++	pinctrl-names = "default";
++	pinctrl-0 = <&usart3_pins_a>;
++	status = "okay";
++	/* USER CODE BEGIN usart3 */
++       
++        /delete-property/dmas;
++	/delete-property/dma-names;
++       
++       /* USER CODE END usart3 */
++}; 
+diff --git a/arch/arm/boot/dts/stm32mp157f-dk2.dts b/arch/arm/boot/dts/stm32mp157f-dk2.dts
+index 1244ae18..27cc6c94 100644
+--- a/arch/arm/boot/dts/stm32mp157f-dk2.dts
++++ b/arch/arm/boot/dts/stm32mp157f-dk2.dts
+@@ -152,3 +152,36 @@
+ 		vddio-supply = <&v3v3>;
+ 	};
+ };
++
++&spi5{
++	pinctrl-names = "default", "sleep";
++	pinctrl-0 = <&spi5_pins_a>;
++	pinctrl-1 = <&spi5_sleep_pins_a>;
++	status = "okay";
++
++	/* USER CODE BEGIN spi5 */
++	
++	cs-gpios = <&gpiof 6 0>;
++	/delete-property/dmas;
++	/delete-property/dma-names;
++  	spidev@0 {
++		compatible = "semtech,sx1301";
++		reg = <0>;
++		spi-max-frequency = <8000000>;
++		st,spi-midi-ns = <4000>;
++	};
++	
++	/* USER CODE END spi5 */
++};
++ 
++&usart3{
++	pinctrl-names = "default";
++	pinctrl-0 = <&usart3_pins_a>;
++	status = "okay";
++	/* USER CODE BEGIN usart3 */
++       
++        /delete-property/dmas;
++	/delete-property/dma-names;
++       
++       /* USER CODE END usart3 */
++}; 
+-- 
+2.25.1
+

@@ -1,0 +1,718 @@
+[
+    {
+        "id": "7b9ed63e.2138f8",
+        "type": "tab",
+        "label": "LoRa DashBoard",
+        "disabled": false,
+        "info": "# Basic flow to start with STM32CubeMonitor."
+    },
+    {
+        "id": "c8b2b1cc.5d369",
+        "type": "mqtt in",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "topic": "application/1/device/+/event/up",
+        "qos": "1",
+        "datatype": "json",
+        "broker": "86db8cbc.1597f",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "6aea0254.1873fc"
+            ]
+        ]
+    },
+    {
+        "id": "a8a41f5a.8a493",
+        "type": "file",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "filename": "/home/amitemrkumar/Development/cubemonitor/gatewayfile.txt",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 830,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ad4a8d8c.66319",
+        "type": "ui_gauge",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 1,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "RSSI",
+        "label": "dBm",
+        "format": "{{msg.payload}}",
+        "min": "-150",
+        "max": "0",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 810,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "bcf1961a.b02c88",
+        "type": "ui_gauge",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 2,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "SNR",
+        "label": "Decibels",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 810,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "b8283955.2d11e8",
+        "type": "ui_gauge",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 4,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "Celsius",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 830,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "486bb698.970988",
+        "type": "ui_gauge",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 3,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Barometer",
+        "label": "HectoPascal",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "5000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 830,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ed7e3aac.b70468",
+        "type": "ui_gauge",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 5,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "percent(%)",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 820,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6aea0254.1873fc",
+        "type": "json",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 470,
+        "y": 100,
+        "wires": [
+            [
+                "a8a41f5a.8a493",
+                "50c8bb66.8a6034",
+                "fa408c15.2e3d6",
+                "c2945599.9b9408",
+                "2506f844.fc7df8",
+                "6c4e7be.22c7984",
+                "8b493fe0.88a17",
+                "870b602a.d663f",
+                "64b6cadc.6f1ea4",
+                "84510010.9cc42",
+                "d1df2e29.d4717",
+                "b5498d6e.54192",
+                "6a185e9a.e34ae",
+                "5fb5df50.55624",
+                "3a482921.5673d6",
+                "b7dc82c6.e1bfa",
+                "a352cd49.34215"
+            ]
+        ]
+    },
+    {
+        "id": "50c8bb66.8a6034",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\n\nconst base64 = p.devEUI; \nconst buff = Buffer.from(base64,'base64');\nconst str = buff.toString('hex');\nmsg.payload=str;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 340,
+        "wires": [
+            [
+                "44b680e7.c11ae"
+            ]
+        ]
+    },
+    {
+        "id": "fa408c15.2e3d6",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\n//p=msg.payload;\nnode.log(typeof p);\nmsg.payload=p.rxInfo[0].rssi\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 100,
+        "wires": [
+            [
+                "ad4a8d8c.66319"
+            ]
+        ]
+    },
+    {
+        "id": "2506f844.fc7df8",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\nconst Sensor = JSON.parse(p.objectJSON);\nmsg.payload= Sensor[\"barometer\"][0];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 180,
+        "wires": [
+            [
+                "486bb698.970988"
+            ]
+        ]
+    },
+    {
+        "id": "6c4e7be.22c7984",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\nconst Sensor = JSON.parse(p.objectJSON);\nmsg.payload= Sensor[\"humiditySensor\"][2];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 220,
+        "wires": [
+            [
+                "ed7e3aac.b70468"
+            ]
+        ]
+    },
+    {
+        "id": "8b493fe0.88a17",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\nconst Sensor = JSON.parse(p.objectJSON);\nmsg.payload= Sensor[\"temperatureSensor\"][1];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 260,
+        "wires": [
+            [
+                "b8283955.2d11e8"
+            ]
+        ]
+    },
+    {
+        "id": "44b680e7.c11ae",
+        "type": "ui_text",
+        "z": "7b9ed63e.2138f8",
+        "group": "3745a154.6ef08e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "DeviceEUI",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 830,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c2945599.9b9408",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\n//p=msg.payload;\nnode.log(typeof p);\nmsg.payload=p.rxInfo[0].loRaSNR\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 140,
+        "wires": [
+            [
+                "bcf1961a.b02c88"
+            ]
+        ]
+    },
+    {
+        "id": "870b602a.d663f",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\nmsg.payload=p.applicationName;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 300,
+        "wires": [
+            [
+                "97913679.0970c8"
+            ]
+        ]
+    },
+    {
+        "id": "97913679.0970c8",
+        "type": "ui_text",
+        "z": "7b9ed63e.2138f8",
+        "group": "3745a154.6ef08e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "ApplicationName",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 850,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3a551a05.51e316",
+        "type": "ui_text",
+        "z": "7b9ed63e.2138f8",
+        "group": "3745a154.6ef08e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "GatewayEUI ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 830,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "64b6cadc.6f1ea4",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\n\nconst base64 = p.rxInfo[0].gatewayID; \nconst buff = Buffer.from(base64,'base64');\nconst str = buff.toString('hex');\nmsg.payload=str;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 460,
+        "wires": [
+            [
+                "3a551a05.51e316"
+            ]
+        ]
+    },
+    {
+        "id": "61b1432c.c23c6c",
+        "type": "ui_text",
+        "z": "7b9ed63e.2138f8",
+        "group": "3745a154.6ef08e",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "frequency",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 820,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "84510010.9cc42",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\nmsg.payload=p.txInfo.frequency;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 500,
+        "wires": [
+            [
+                "61b1432c.c23c6c"
+            ]
+        ]
+    },
+    {
+        "id": "808f4e66.dd2bd",
+        "type": "ui_text",
+        "z": "7b9ed63e.2138f8",
+        "group": "3745a154.6ef08e",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "bandwidth",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 830,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "a57e7df5.d1c6d",
+        "type": "ui_text",
+        "z": "7b9ed63e.2138f8",
+        "group": "3745a154.6ef08e",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "SpreadingFactor",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 850,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "9a41417f.c67f3",
+        "type": "ui_text",
+        "z": "7b9ed63e.2138f8",
+        "group": "3745a154.6ef08e",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "fcount",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 810,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "994b854d.500168",
+        "type": "ui_text",
+        "z": "7b9ed63e.2138f8",
+        "group": "3745a154.6ef08e",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "fport",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 810,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "7722560f.b0a378",
+        "type": "ui_text",
+        "z": "7b9ed63e.2138f8",
+        "group": "3745a154.6ef08e",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "data",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 810,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "69bb8d31.f10694",
+        "type": "ui_text",
+        "z": "7b9ed63e.2138f8",
+        "group": "3745a154.6ef08e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "DeviceAddress",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 840,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a352cd49.34215",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\nconst base64 = p.devAddr; \nconst buff = Buffer.from(base64,'base64');\nconst str = buff.toString('hex');\nmsg.payload=str;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 420,
+        "wires": [
+            [
+                "69bb8d31.f10694"
+            ]
+        ]
+    },
+    {
+        "id": "d1df2e29.d4717",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\nmsg.payload=p.txInfo.loRaModulationInfo.bandwidth;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 540,
+        "wires": [
+            [
+                "808f4e66.dd2bd"
+            ]
+        ]
+    },
+    {
+        "id": "b5498d6e.54192",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\nmsg.payload=p.txInfo.loRaModulationInfo.spreadingFactor;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 580,
+        "wires": [
+            [
+                "a57e7df5.d1c6d"
+            ]
+        ]
+    },
+    {
+        "id": "6a185e9a.e34ae",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p); \nmsg.payload=p.fCnt;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 620,
+        "wires": [
+            [
+                "9a41417f.c67f3"
+            ]
+        ]
+    },
+    {
+        "id": "5fb5df50.55624",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p); \nmsg.payload=p.fPort;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 660,
+        "wires": [
+            [
+                "994b854d.500168"
+            ]
+        ]
+    },
+    {
+        "id": "3a482921.5673d6",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\nconst base64 = p.data; \nconst buff = Buffer.from(base64,'base64');\nconst str = buff.toString('hex');\nmsg.payload=p.data;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 700,
+        "wires": [
+            [
+                "7722560f.b0a378"
+            ]
+        ]
+    },
+    {
+        "id": "b7dc82c6.e1bfa",
+        "type": "function",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "func": "p=JSON.parse(msg.payload);\nnode.log(typeof p);\nmsg.payload=p.deviceName;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 380,
+        "wires": [
+            [
+                "65356046.1017e"
+            ]
+        ]
+    },
+    {
+        "id": "65356046.1017e",
+        "type": "ui_text",
+        "z": "7b9ed63e.2138f8",
+        "group": "3745a154.6ef08e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "DeviceName",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 830,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "86db8cbc.1597f",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.34",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": " ",
+        "birthQos": "1",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "f9c34dde.1e2f4",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "17d09b07.741a55",
+        "order": 2,
+        "disp": true,
+        "width": "9",
+        "collapse": true
+    },
+    {
+        "id": "3745a154.6ef08e",
+        "type": "ui_group",
+        "name": "DeviceDetails",
+        "tab": "17d09b07.741a55",
+        "order": 1,
+        "disp": true,
+        "width": "8",
+        "collapse": true
+    },
+    {
+        "id": "17d09b07.741a55",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

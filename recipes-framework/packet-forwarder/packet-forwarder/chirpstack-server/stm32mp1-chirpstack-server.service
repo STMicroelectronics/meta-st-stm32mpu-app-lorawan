@@ -1,0 +1,11 @@
+[Unit]
+Description=LoRaWan Gateway
+
+[Service]
+WorkingDirectory=/usr/local/lorawan-gateway/chirpstack-server
+ExecStart=/usr/local/lorawan-gateway/chirpstack-server/stm32mp1-chirpstack-server.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

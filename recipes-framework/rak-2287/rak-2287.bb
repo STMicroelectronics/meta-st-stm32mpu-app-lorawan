@@ -1,0 +1,75 @@
+SUMMARY ="LoRaWan Gateway Packet Forwarder"
+DESCRIPTION = "A LoRa packet forwarder is a program running on the host\
+of a LoRa gateway that forwards RF packets receive by the concentrator\
+to a server through a IP/UDP link, and emits RF packets\
+that are sent by the server. "
+
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=d2119120bd616e725f4580070bd9ee19"
+SRC_URI = "git://github.com/Lora-net/sx1302_hal;protocol=https;branch=master"
+ 
+
+SRC_URI += "file://0001-stm32mp1-rak2287.patch"
+SRC_URI += "file://concentrator-reset.sh"
+
+SRCREV = "4b42025d1751e04632c0b04160e0d29dbbb222a5"
+
+PV="2.1.0"
+
+S = "${WORKDIR}/git"
+
+EXTRA_OEMAKE  = 'CFLAGS="-O2 -Wall -Wextra -std=c99 -Iinc -I../libtools/inc"'
+
+INSANE_SKIP_${PN} = "ldflags"
+
+do_install () {
+
+        install -d ${D}${prefix}/local/lorawan-gateway
+        install -d ${D}${prefix}/local/lorawan-gateway/lora-gateway
+        install -d ${D}${prefix}/local/lorawan-gateway/rak2287
+        install -d ${D}${prefix}/local/lorawan-gateway/rak2287/mcu_bin
+        install -d ${D}${prefix}/local/lorawan-gateway/rak2287/test
+        install -d ${D}${prefix}/local/lorawan-gateway/rak2287/utility
+        install -d ${D}${prefix}/local/lorawan-gateway/rak2287/utility/tools
+
+        install -m 0755 ${S}/packet_forwarder/lora_pkt_fwd ${D}${prefix}/local/lorawan-gateway/lora-gateway
+        install -m 0755 ${S}/packet_forwarder/global_conf.json ${D}${prefix}/local/lorawan-gateway/lora-gateway
+        install -m 0755 ${S}/packet_forwarder/local_conf.json ${D}${prefix}/local/lorawan-gateway/lora-gateway
+        install -m 0755 ${S}/packet_forwarder/reset_lgw.sh ${D}${prefix}/local/lorawan-gateway/lora-gateway
+
+        install -d ${D}${prefix}/local/lorawan-gateway/rak2287
+
+        install -m 0755 ${S}/packet_forwarder/lora_pkt_fwd ${D}${prefix}/local/lorawan-gateway/rak2287
+        install -m 0640 ${S}/packet_forwarder/global_conf.json ${D}${prefix}/local/lorawan-gateway/rak2287
+        install -m 0640 ${S}/packet_forwarder/local_conf.json ${D}${prefix}/local/lorawan-gateway/rak2287
+        install -m 0755 ${S}/packet_forwarder/reset_lgw.sh ${D}${prefix}/local/lorawan-gateway/rak2287
+        install -m 0755 ${WORKDIR}/concentrator-reset.sh ${D}${prefix}/local/lorawan-gateway/rak2287 
+        
+        install -m 0755 ${S}/mcu_bin/rlz_010000_CoreCell_USB.bin ${D}${prefix}/local/lorawan-gateway/rak2287/mcu_bin
+        
+	install -m 0755 ${S}/libloragw/test_loragw_* ${D}${prefix}/local/lorawan-gateway/rak2287/test
+        install -m 0755 ${S}/packet_forwarder/reset_lgw.sh ${D}${prefix}/local/lorawan-gateway/rak2287/test
+
+	install -m 0755 ${S}/util_boot/boot ${D}${prefix}/local/lorawan-gateway/rak2287/utility
+        install -m 0755 ${S}/util_chip_id/chip_id ${D}${prefix}/local/lorawan-gateway/rak2287/utility
+        install -m 0755 ${S}/util_net_downlink/net_downlink ${D}${prefix}/local/lorawan-gateway/rak2287/utility
+        install -m 0755 ${S}/util_spectral_scan/spectral_scan ${D}${prefix}/local/lorawan-gateway/rak2287/utility
+        install -m 0755 ${S}/packet_forwarder/reset_lgw.sh ${D}${prefix}/local/lorawan-gateway/rak2287/utility     
+        install -m 0755 ${S}/tools/payload_tools/payload_crc ${D}${prefix}/local/lorawan-gateway/rak2287/utility/tools
+        install -m 0755 ${S}/tools/payload_tools/payload_diff ${D}${prefix}/local/lorawan-gateway/rak2287/utility/tools
+        install -m 0755 ${S}/tools/payload_tools/payload_gen ${D}${prefix}/local/lorawan-gateway/rak2287/utility/tools
+        install -m 0755 ${S}/tools/systemd/*.* ${D}${prefix}/local/lorawan-gateway/rak2287/utility/tools
+        install -m 0755 ${S}/tools/node-red-registers.json ${D}${prefix}/local/lorawan-gateway/rak2287/utility/tools          
+
+        install -d ${D}${prefix}/local/lorawan-gateway/rak2287/region
+        install -m 0640 ${S}/packet_forwarder/region/* ${D}${prefix}/local/lorawan-gateway/rak2287/region
+
+}
+
+RDEPENDS_${PN} += "bash"
+
+FILES_${PN} += "${prefix}/local/lorawan-gateway"
+
+
+
+

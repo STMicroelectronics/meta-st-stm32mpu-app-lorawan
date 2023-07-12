@@ -1,0 +1,12 @@
+[Unit]
+Description=ChirpStack FUOTA Server
+Documentation=https://www.chirpstack.io/
+ 
+[Service]
+WorkingDirectory=/usr/bin/
+ExecStart=/usr/bin/chirpstack-fuota-server
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

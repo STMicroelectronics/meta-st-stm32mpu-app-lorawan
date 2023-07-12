@@ -1,0 +1,12 @@
+[Unit]
+Description=STM32 LoRa Gateway
+
+[Service]
+WorkingDirectory=/usr/local/lorawan-gateway/lora-gateway
+ExecStart=/usr/local/lorawan-gateway/lora-gateway/stm32mp1-loragateway.sh
+SyslogIdentifier=stm32mp1-lorawan-a7
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

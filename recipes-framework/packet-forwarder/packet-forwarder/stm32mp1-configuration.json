@@ -1,0 +1,33 @@
+{
+  "gateway_model": {
+    "gw_com_typ": "USB",
+    "gw_com_gps": "GPS",
+    "gw_com_lbt": "NONE",
+    "gw_com_path": "/dev/ttyACM0",
+    "gw_path": "rak5146",
+    "gw_path_value": "5"
+  },
+  "gateway_server": {
+    "server_eui":"AA555A0000000000",
+    "server_path": "lora-gateway",
+    "server_path_value": "1",
+    "server_ip": "eu1.loriot.io",
+    "server_port_up": "1780",
+    "server_port_down": "1780",
+    "server_freq_region": "EU868",
+    "server_freq_region_value": "6",
+    "server_freq_channel": "eu863-870-1",
+    "server_freq_channel_value":"1"
+  },
+  "gateway_conn": {
+   "conn_mode": "lan",
+   "conn_value": "1" 
+   },
+
+   "database_conf": {
+    "chirpstack_as_pwd": "dbpassword",
+    "chirpstack_ns_pwd": "dbpassword",
+    "chirpstack_fuota_pwd": "dbpassword"
+  }
+
+}

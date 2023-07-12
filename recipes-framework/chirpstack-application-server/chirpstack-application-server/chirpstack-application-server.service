@@ -5,7 +5,7 @@ Documentation=https://www.chirpstack.io/
 [Service]
 WorkingDirectory=/usr/bin/
 ExecStart=/usr/bin/chirpstack-application-server
-Restart=always
+Restart=on-failure
 RestartSec=5
 
 [Install]

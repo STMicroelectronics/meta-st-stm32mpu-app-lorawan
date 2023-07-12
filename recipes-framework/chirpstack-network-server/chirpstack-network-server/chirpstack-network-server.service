@@ -1,11 +1,11 @@
 [Unit]
-Description=Chirpstack Network Server
+Description=ChirpStack Network Server
 Documentation=https://www.chirpstack.io/
 
 [Service]
 WorkingDirectory=/usr/bin/
 ExecStart=/usr/bin/chirpstack-network-server
-Restart=always
+Restart=on-failure
 RestartSec=5
 
 [Install]

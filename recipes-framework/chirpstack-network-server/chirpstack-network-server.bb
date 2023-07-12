@@ -1,33 +1,58 @@
-DESCRIPTION = "Chirpstack Network Server"
+DESCRIPTION = "chirpstack network server"
 HOMEPAGE = "https://www.chirpstack.io/"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=e3a340e43ab9867d3e5d0ea79a54b0e1"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=e52a56a5b272102f5f53d67fdc2dd122"
 LICENSE_PATH += "file://LICENSE"
 
-SRC_URI = "https://artifacts.chirpstack.io/downloads/chirpstack-network-server/chirpstack-network-server_3.12.3_linux_armv7.tar.gz"
-SRC_URI[md5sum] = "31394bd818e0846cb99ce3d8979f1ba3"
-SRC_URI[sha256sum] = "bb52c86dae48ae14ab9a33ee0636a0c95b64316db961cc39cd395c2053d24847"
-
-SRC_URI += " \
-    file://chirpstack-network-server.service \
-    file://config/au915_0.toml \
-    file://config/au915_1.toml \
-    file://config/au915_2.toml \
-    file://config/au915_3.toml \
-    file://config/au915_4.toml \
-    file://config/au915_5.toml \
-    file://config/au915_6.toml \
-    file://config/au915_7.toml \
-    file://config/eu868.toml \
-    file://config/us915_0.toml \
-    file://config/us915_1.toml \
-    file://config/us915_2.toml \
-    file://config/us915_3.toml \
-    file://config/us915_4.toml \
-    file://config/us915_5.toml \
-    file://config/us915_6.toml \
-    file://config/us915_7.toml \
-"
+SRC_URI = "https://artifacts.chirpstack.io/downloads/chirpstack-network-server/chirpstack-network-server_3.16.5_linux_armv7.tar.gz"
+SRC_URI[md5sum] = "0fd659b75375199ed1b47b42b7c38b12"
+SRC_URI[sha256sum] = "bf8e5767cadea1b32a3642e853920786ccd950f9830f6156e2d9a9525de4551c"
+ 
+SRC_URI += "file://chirpstack-network-server.service"
+SRC_URI += "file://chirpstack-network-server.toml"
+SRC_URI += "file://config/chirpstack-network-server.as923-1.toml"
+SRC_URI += "file://config/chirpstack-network-server.as923-2.toml"
+SRC_URI += "file://config/chirpstack-network-server.as923-3.toml"
+SRC_URI += "file://config/chirpstack-network-server.as923-4.toml"
+SRC_URI += "file://config/chirpstack-network-server.as923-1-lbt.toml"
+SRC_URI += "file://config/chirpstack-network-server.as923-2-lbt.toml"
+SRC_URI += "file://config/chirpstack-network-server.as923-3-lbt.toml"
+SRC_URI += "file://config/chirpstack-network-server.as923-4-lbt.toml"
+SRC_URI += "file://config/chirpstack-network-server.kr920-923-lbt.toml"
+SRC_URI += "file://config/chirpstack-network-server.au915-928-1.toml"
+SRC_URI += "file://config/chirpstack-network-server.au915-928-2.toml"
+SRC_URI += "file://config/chirpstack-network-server.au915-928-3.toml"
+SRC_URI += "file://config/chirpstack-network-server.au915-928-4.toml"
+SRC_URI += "file://config/chirpstack-network-server.au915-928-5.toml"
+SRC_URI += "file://config/chirpstack-network-server.au915-928-6.toml"
+SRC_URI += "file://config/chirpstack-network-server.au915-928-7.toml"
+SRC_URI += "file://config/chirpstack-network-server.au915-928-8.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-1.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-2.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-3.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-4.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-5.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-6.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-7.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-8.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-9.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-10.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-11.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn470-510-12.toml"
+SRC_URI += "file://config/chirpstack-network-server.cn779-787-1.toml"
+SRC_URI += "file://config/chirpstack-network-server.eu433-434-1.toml"
+SRC_URI += "file://config/chirpstack-network-server.eu863-870-1.toml"
+SRC_URI += "file://config/chirpstack-network-server.in865-867-1.toml"
+SRC_URI += "file://config/chirpstack-network-server.kr920-923-1.toml"
+SRC_URI += "file://config/chirpstack-network-server.ru864-870-1.toml"
+SRC_URI += "file://config/chirpstack-network-server.us902-928-1.toml"
+SRC_URI += "file://config/chirpstack-network-server.us902-928-2.toml"
+SRC_URI += "file://config/chirpstack-network-server.us902-928-3.toml"
+SRC_URI += "file://config/chirpstack-network-server.us902-928-4.toml"
+SRC_URI += "file://config/chirpstack-network-server.us902-928-5.toml"
+SRC_URI += "file://config/chirpstack-network-server.us902-928-6.toml"
+SRC_URI += "file://config/chirpstack-network-server.us902-928-7.toml"
+SRC_URI += "file://config/chirpstack-network-server.us902-928-8.toml"
 
 INSANE_SKIP_${PN} += "already-stripped"
 
@@ -38,11 +63,13 @@ do_install_append() {
 	install -m 0755 chirpstack-network-server ${D}${bindir}/
 
 	install -d ${D}/etc/chirpstack-network-server/
+        install -m 0640 ${S}/chirpstack-network-server.toml ${D}/etc/chirpstack-network-server/chirpstack-network-server.toml
+
 	install -d ${D}/etc/chirpstack-network-server/config
 	install -m 0640 ${S}/config/* ${D}/etc/chirpstack-network-server/config
-
+             
 	install -d ${D}/etc/systemd/system/
-	install -m 0755 ${S}/chirpstack-network-server.service ${D}/etc/systemd/system/
+	install -m 0644 ${S}/chirpstack-network-server.service ${D}/etc/systemd/system/
 }
 
 FILES_${PN} += "${bindir}"
