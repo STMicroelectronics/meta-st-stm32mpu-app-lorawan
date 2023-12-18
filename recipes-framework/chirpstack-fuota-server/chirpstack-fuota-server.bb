@@ -15,7 +15,7 @@ INSANE_SKIP_${PN} += "already-stripped"
 
 S = "${WORKDIR}"
  
-do_install_append() {
+do_install:append() {
 	install -d ${D}${bindir}
 	install -m 0755 chirpstack-fuota-server ${D}${bindir}
 
