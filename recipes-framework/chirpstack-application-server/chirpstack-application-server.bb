@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "2567ffb19e898fa0b66da8f63dd254e8b337eb5d3605d9b62f4f950109
 SRC_URI += "file://chirpstack-application-server.service"
 SRC_URI += "file://chirpstack-application-server.toml"
 
-INSANE_SKIP_${PN} += "already-stripped"
+INSANE_SKIP:${PN} += "already-stripped"
 
 S = "${WORKDIR}"
 
@@ -24,4 +24,4 @@ do_install:append() {
 	install -m 0644 ${S}/chirpstack-application-server.service ${D}/etc/systemd/system/
 }
 
-FILES_${PN} += "${bindir}"
+FILES:${PN} += "${bindir}"

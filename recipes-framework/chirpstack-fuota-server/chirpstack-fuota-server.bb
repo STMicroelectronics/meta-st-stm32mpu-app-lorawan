@@ -11,7 +11,7 @@ SRC_URI[sha256sum] =  "3403f06ce15235b9aec3b14fa3fe0c359012190cf2df603a3b2256ec9
 SRC_URI += "file://chirpstack-fuota-server.service"
 SRC_URI += "file://chirpstack-fuota-server.toml"
 
-INSANE_SKIP_${PN} += "already-stripped"
+INSANE_SKIP:${PN} += "already-stripped"
 
 S = "${WORKDIR}"
  
@@ -26,4 +26,4 @@ do_install:append() {
 	install -m 0644 ${S}/chirpstack-fuota-server.service ${D}/etc/systemd/system/
 }
 
-FILES_${PN} += "${bindir}"
+FILES:${PN} += "${bindir}"
