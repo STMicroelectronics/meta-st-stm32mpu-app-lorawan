@@ -18,7 +18,7 @@ S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE  = 'CFLAGS="-O2 -Wall -Wextra -std=c99 -Iinc -I../libtools/inc"'
 
-INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP:${PN} = "ldflags"
 
 do_install () {
 
@@ -53,6 +53,6 @@ do_install () {
 
 }
 
-RDEPENDS_${PN} += "bash"
+RDEPENDS:${PN} += "bash"
 
-FILES_${PN} += "${prefix}/local/lorawan-gateway"
+FILES:${PN} += "${prefix}/local/lorawan-gateway"

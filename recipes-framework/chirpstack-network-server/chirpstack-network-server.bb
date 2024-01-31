@@ -54,11 +54,11 @@ SRC_URI += "file://config/chirpstack-network-server.us902-928-6.toml"
 SRC_URI += "file://config/chirpstack-network-server.us902-928-7.toml"
 SRC_URI += "file://config/chirpstack-network-server.us902-928-8.toml"
 
-INSANE_SKIP_${PN} += "already-stripped"
+INSANE_SKIP:${PN} += "already-stripped"
 
 S = "${WORKDIR}"
 
-do_install_append() {
+do_install:append() {
 	install -d ${D}${bindir}
 	install -m 0755 chirpstack-network-server ${D}${bindir}/
 
@@ -72,4 +72,4 @@ do_install_append() {
 	install -m 0644 ${S}/chirpstack-network-server.service ${D}/etc/systemd/system/
 }
 
-FILES_${PN} += "${bindir}"
+FILES:${PN} += "${bindir}"
